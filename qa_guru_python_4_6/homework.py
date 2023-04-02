@@ -74,16 +74,20 @@ def test_find_suitable_user():
 # "Open Browser [Chrome]"
 
 
-def rename_function(func_name, *args):
-    return f'{func_name.__name__.replace("_", " ").title()} [{", ".join(args)}]'
-
-
 def test_readable_function():
     open_browser(browser_name="Chrome")
     go_to_companyname_homepage(page_url="https://companyname.com")
     find_registration_button_on_login_page(
         page_url="https://companyname.com/login", button_text="Register"
     )
+
+
+def rename_function(func_name, *args):
+    func_name_arg_values = (
+        f'{func_name.__name__.replace("_", " ").title()} [{", ".join(args)}]'
+    )
+    print(func_name_arg_values)
+    return func_name_arg_values
 
 
 def open_browser(browser_name):
